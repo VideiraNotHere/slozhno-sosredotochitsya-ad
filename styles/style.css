@@ -1,5 +1,414 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  margin: 0 auto;
+  background-image: var(--background-image);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: var(--font, monospace);
+  font-size: var(--font-size);
+  font-weight: var(--title-weight);
+  line-height: 23.4px;
+}
+
+.header {
+  display: grid;
+  position: relative;
+  min-block-size: 100vh;
+  grid-template-rows: 1fr min-content 1fr;
+  padding: 20px;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  color: var(--decorative-element);
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  padding: 0px 15px;
+  text-transform: lowercase;
+}
+
+.header__theme-menu-button_active {
+  outline: thin solid var(--decorative-element);
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  outline: thin solid rgb(255, 0, 112, 0.4);
+  cursor: pointer;
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--decorative-element);
+}
+
+.header__decorative-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content:"";
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
+  padding-right: 9px;
+  text-transform: uppercase;
+  color: var(--btn-color);
+  text-align: center;
+}
+
+.header__decorative-item::after {
+  display: block;
+  content: "";
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background-color: var(--btn-color);
+  fill: var(--btn-color);
+  box-shadow: 0px 0px 8px 4px var(--btn-color);
+}
+
+.contour::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 20px;
+  content: "";
+  inline-size: 25px;
+  block-size: 25px;
+  border-bottom: 1px solid var(--decorative-element);
+  border-left: 1px solid var(--decorative-element);
+}
+
+.contour::before {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 20px;
+  content: "";
+  inline-size: 25px;
+  block-size: 25px;
+  border-top: 1px solid var(--decorative-element);
+  border-right: 1px solid var(--decorative-element);
+}
+
+.header__logo {
+  margin-left: -10px;
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  font-weight: 700;
+  line-height: 82.5%;
+  color: var(--neon-color);
+  text-shadow: 4px 4px 0 var(--title-color);
+}
+
+.title-decor {
+  font-weight: var(--title-weight);
+  font-size: var(--font-size);
+  color: var(--headline-color);
+  line-height: 23.4px;
+  background-color: var(--btn-color);
+}
+
+.header__description {
+  max-inline-size: 491px;
+  max-block-size: 70px;
+  justify-self: end;
+  align-self: center;
+}
+
+.question-section-one {
+  display: grid;
+  grid-template-columns: 34% 66%;
+  margin-block-start: 60px;
+  margin-inline: 20px;
+}
+
+.question-section__title {
+  font-family: var(--font, monospace);
+  font-weight: var(--title-weight);
+  font-size: var(--font-size);
+  max-inline-size: 315px;
+  line-height: 23.4px;
+  color: var(--decorative-element);
+}
+
+.question-section-answer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.question-section-answer p:first-of-type {
+  padding-block-end: 10px;
+}
+
+.description__decor {
+  font-family: var(--font, monospace);
+  font-weight: var(--text-weight);
+  font-size: var(--font-size);
+  font-style: normal;
+  line-height: 23.4px;
+  color: var(--text-color);
+}
+
+.question-section-answer__link {
+  text-shadow: 2px 2px var(--btn-color);
+  text-decoration: none;
+}
+
+.question-section-answer__link:hover {
+  border-bottom: 1px solid var(--text-color);
+}
+
+.question-section-answer__link:focus {
+  outline: none;
+}
+
+.question-section-answer__link:focus-visible {
+  border: 1px solid var(--text-color);
+}
+
+.question-section-two {
+  margin-block-start: 80px;
+  margin-block-end: 80px;
+  margin-inline: 20px;
+}
+
+.question-section-answer-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 13px;
+  padding-block-start: 20px;
+}
+
+.question-section-answer__description {
+  padding-block-start: 10px;
+}
+
+.question-section-three {
+  display: grid;
+  grid-template-columns: 34% 66%;
+  margin-block-end: 80px;
+  margin-inline: 20px;
+}
+
+.question-section-answer-advice {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.question-section-answer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.question-section-answer__subtitle {
+  font-weight: var(--text-weight);
+  font-style: normal;
+}
+
+.question-section-four {
+  margin-block-end: 60px;
+  margin-inline: 20px;
+}
+
+.question-section-four__placement {
+  margin-block-end: 20px;
+}
+
+.question-section__image {
+  display: grid;
+  max-inline-size: 984px;
+  max-block-size: 1008px;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 20px;
+  grid-template-areas: 
+    "item1 item1 item2"
+    "item3 item4 item2"
+    "item3 item5 item5";
+}
+
+.item--1 {
+  grid-area: item1;
+}
+.item--2 {
+  grid-area: item2;
+}
+.item--3 {
+  grid-area: item3;
+}
+.item--4 {
+  grid-area: item4;
+}
+.item--5 {
+  grid-area: item5;
+}
+
+.question-section__image-content {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.footer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding-block: 20px;
+  padding-inline: 20px;
+  min-height: 100vh;
+}
+
+.footer__title {
+  line-height: 83%;
+  font-weight: var(--title-weight);
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  color: var(--neon-color);
+  text-shadow: 2px 2px var(--title-color);
+}
+
+@media (max-width: 768px) {
+  .header__theme-menu {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .header__theme-menu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 13px;
+  }
+
+  .header__description {
+    max-inline-size: 364px;
+    max-block-size: 117px;
+  }
+
+  .header__logo {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
+  }
+
+  .question-section-one {
+    display: grid;
+    grid-template-columns: 33% 67%;
+  }
+
+  .question-section__title {
+    max-inline-size: 236px;
+  }
+
+  .question-section-answer-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .question-section-three {
+    display: grid;
+    grid-template-columns: 33% 64%;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 376px) {
+  .header {
+    padding: 10px;
+    min-block-size: 100vh;
+  }
+  
+  .header__decorative-item {
+    margin: 10px;
+  }
+
+  .header__logo {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    margin-left: 0px;
+  }
+
+  .header__description {
+    max-inline-size: 355px;
+    max-block-size: 117px;
+  }
+
+  .question-section-one {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 10px;
+    padding-block-start: 40px;
+    margin: 0;
+  }
+
+  .question-section__title {
+    max-inline-size: 355px;
+  }
+
+  .question-section-answer {
+    margin-block-start: 20px;
+  }
+
+  .question-section-two {
+    margin: 0;
+    padding-block-start: 50px;
+    padding-inline: 10px;
+    padding-block-end: 50px;
+  }
+
+  .question-section-three {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding-inline: 10px;
+    padding-block-end: 50px;
+  }
+
+  .question-section-four {
+    padding-inline: 10px;
+    margin: 0;
+    padding-block-end: 40px;
+  }
+
+  .question-section-four__placement {
+    margin-block-end: 10px;
+  }
+
+  .question-section__image {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-block-size: 1400px;
+  }
+
+  .footer {
+    padding-inline: 10px;
+  }
+
+  .footer__title {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  }
+
+  .contour::after {
+    margin: 10px 10px;
+  }
+
+  .contour::before {
+    margin: 10px 10px;
+  }
 }
